@@ -11,7 +11,7 @@ enum TrafficLightState {
 
 const int NUM_DIRECTIONS = 4;
 TrafficLightState lightStates[NUM_DIRECTIONS] = {RED, RED, RED, RED};
-int carCounts[NUM_DIRECTIONS] = {5, 3, 0, 2};  // Hard-coded car counts for each direction
+int carCounts[NUM_DIRECTIONS] = {5, 3, 0, 2};
 
 void controlTrafficLight(int direction) {
     while (true) {
@@ -19,7 +19,7 @@ void controlTrafficLight(int direction) {
 
         if (carsInDirection > 0) {
             lightStates[direction] = GREEN;
-            int greenDuration = 5 + carsInDirection * 2; // Green light duration with additional 2 seconds per car
+            int greenDuration =  + carsInDirection; // Green light duration with additional 2
             std::cout << "Direction " << direction << ": Green Light for " << greenDuration << " seconds\n";
             std::this_thread::sleep_for(std::chrono::seconds(greenDuration));
             carCounts[direction] = 0; // Reset car count to 0 after green light
